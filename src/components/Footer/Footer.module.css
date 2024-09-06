@@ -1,0 +1,51 @@
+
+.contr {
+   padding: 120px 100px 20px
+}
+
+.logo {
+    height: 100%;
+  
+    img {
+      width: 84px;
+       height: 76px;
+      object-fit: contain;
+    }
+  
+  
+  }
+
+.logoCtr {
+    padding: 8px;
+    border-radius: 4px; 
+  }
+
+  .displayLinebreak{
+    white-space: pre-line;
+    line-height: 30px;
+    font-size: 18px;
+    color: #6F6C90;
+  }
+
+  .verticalMenu {
+    display: flex;
+    flex-direction: column;
+    line-height: 2.2;
+  }
+
+  .verticalMenu a {
+    color: #6F6C90;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .verticalMenu a:hover {
+    color: #008DFF;
+  }
+
+  @media only screen and (max-width: 600px) {
+    .contr {
+      padding: 20px 
+   }
+  }
