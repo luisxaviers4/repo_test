@@ -1,11 +1,12 @@
 // Header.tsx
-import React, { useContext, useEffect, useState } from "react";
-import { Layout, Menu, Avatar, Dropdown, Space, Button, Row, Col } from "antd";
-import { UserOutlined } from "@ant-design/icons";
+import React, { useContext } from "react";
+import { Layout, Menu, Button } from "antd";
+import { LogoutOutlined } from "@ant-design/icons";
 import { Link, useNavigate } from "react-router-dom";
 // import logo from "../../assets/Logo.svg";
 import logo from "../../assets/zprime_logo.png";
 import classes from "./header.module.css";
+import { UserContext } from "../../context/UserContext";
 
 const { Header: AntHeader } = Layout;
 
@@ -19,8 +20,9 @@ const userMenu = (
   </Menu>
 );
 
-const Header: React.FC = ({ loginHandler, isLoggedIn, logoutHandler }) => {
+const Header: React.FC = ({ loginHandler, logoutHandler }) => {
   const navigate = useNavigate();
+  const { isUserLoggedIn } = useContext(UserContext);
 
   return (
     <>
@@ -58,12 +60,13 @@ const Header: React.FC = ({ loginHandler, isLoggedIn, logoutHandler }) => {
           style={{ display: "flex", alignItems: "center", margin: "0 16px" }}
         >
           <Button
+            icon={isUserLoggedIn ? <LogoutOutlined /> : ""}
             style={{ width: 120 }}
-            type="primary"
             ghost
-            onClick={isLoggedIn ? logoutHandler : loginHandler}
+            type={isUserLoggedIn ? "link" : "primary"}
+            onClick={isUserLoggedIn ? logoutHandler : loginHandler}
           >
-            {isLoggedIn ? "Logout" : "Login"}
+            {isUserLoggedIn ? "Logout" : "Login"}
           </Button>
         </div>
       </AntHeader>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 import defaultImage1 from "../../assets/bg1.png";
@@ -13,16 +13,17 @@ import shadow1 from "../../assets/shadow1.png";
 import shadow2 from "../../assets/shadow2.png";
 import shadow3 from "../../assets/shadow3.png";
 import cover from "../../assets/card.png";
-import { Button, Card, Col, Row } from "antd";
+import { Button, Card } from "antd";
+import { UserContext } from "../../context/UserContext";
 
 const Home = () => {
+  const { setAuthModal, isUserLoggedIn } = useContext(UserContext);
   const [expandedSection, setExpandedSection] = useState(null);
   const [hoveredSection, setHoveredSection] = useState(null);
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const checkScreenWidth = () => {
-      console.log(window.innerWidth, "window.innerWidth");
       setIsMobile(window.innerWidth <= 768); // Adjust the value based on your definition of "mobile"
     };
 
@@ -80,13 +81,23 @@ const Home = () => {
               tincidunt purus aenean volutpat dignissim. Amet ultrices sit neque
               ac egestas semper ac at ipsum.
             </div>
-            <Button type="primary">View Operational Solution</Button>
+            <Button
+              type="primary"
+              onClick={() => {
+                if (!isUserLoggedIn) {
+                  setAuthModal(true);
+                  return;
+                }
+                window.open(" https://d1gy6jtatxn3cc.cloudfront.net/");
+              }}
+            >
+              View Operational Solution
+            </Button>
           </>
         </Card>
       </motion.div>
     );
   };
-  console.log(isMobile, "ismobile");
 
   const getTintedColor = (section: any) => {
     switch (section) {
@@ -111,19 +122,6 @@ const Home = () => {
         return "Compliance";
       default:
         return "Compliance";
-    }
-  };
-
-  const getSolidColor = (section: any) => {
-    switch (section) {
-      case 1:
-        return "linear-gradient(#3587E4, #1D4A7E)"; // Solid Blue
-      case 2:
-        return "linear-gradient(#67E435, #397E1D)"; // Solid Green
-      case 3:
-        return "linear-gradient(#424542, #343534)"; // Solid Grey
-      default:
-        return "#000000";
     }
   };
 

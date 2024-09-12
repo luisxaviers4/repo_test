@@ -51,7 +51,7 @@ const AppFooter = () => {
             <a href="https://zprime.ai/solutions/" target="_blank">
               Solutions
             </a>
-            <Link to="/contact">Case studies</Link>
+            <a href="https://zprime.ai/solutions/">Case studies</a>
           </div>
         </Col>
         <Col xs={24} md={4}>
@@ -72,16 +72,16 @@ const AppFooter = () => {
         <Col xs={24} md={4}>
           <h4>Contact us</h4>
           <div className={classes.verticalMenu}>
-            <Link to="/home">
+            <Link to="/">
               {" "}
               <BsEnvelope />
               help@z-prime.com
             </Link>
-            <Link to="/about">
+            <Link to="/">
               <FiPhone />
               (414) 687 - 5892
             </Link>
-            <Link to="/services" style={{ alignItems: "baseline" }}>
+            <Link to="/" style={{ alignItems: "baseline" }}>
               <div>
                 <SlLocationPin />
               </div>

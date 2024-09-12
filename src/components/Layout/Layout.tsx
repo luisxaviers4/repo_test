@@ -1,59 +1,70 @@
 // Layout.tsx
-import React, { ReactNode, useState } from "react";
+import React, { ReactNode, useContext, useState } from "react";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
-import { Button, Input, Modal } from "antd";
+import { Button, Input, message, Modal } from "antd";
 import apis from "../../api/api";
+import { UserContext } from "../../context/UserContext";
 
 interface LayoutProps {
   children: ReactNode;
 }
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const { showAuthModal, setAuthModal, setUserLoggedIn } =
+    useContext(UserContext);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  const showModal = () => {
-    setIsModalOpen(true);
+  const displayModal = () => {
+    setAuthModal(true);
   };
 
   const handleOk = () => {
-    setIsModalOpen(false);
+    setAuthModal(false);
     setUsername("");
     setPassword("");
   };
 
   const handleCancel = () => {
-    setIsModalOpen(false);
+    setAuthModal(false);
     setUsername("");
     setPassword("");
   };
 
   const onLogin = async () => {
-    await apis.handleLogin(username, password);
-    setIsModalOpen(false);
-    setIsLoggedIn(true);
-    setUsername("");
-    setPassword("");
+    try {
+      const res = await apis.handleLogin(username, password);
+      if (res?.data) {
+        setUserLoggedIn(true);
+      } else {
+        message.error({
+          content:
+            "Invalid credentials. Please check your details and try again",
+          style: {
+            textAlign: "end",
+          },
+        });
+      }
+      setAuthModal(false);
+      setUsername("");
+      setPassword("");
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const onLogout = async () => {
     await apis.handleLogout();
-    setIsLoggedIn(false);
+    setUserLoggedIn(false);
   };
   return (
     <div>
-      <Header
-        loginHandler={showModal}
-        isLoggedIn={isLoggedIn}
-        logoutHandler={onLogout}
-      />
+      <Header loginHandler={displayModal} logoutHandler={onLogout} />
       <main>{children}</main>
       <Footer />
       <Modal
-        open={isModalOpen}
+        open={showAuthModal}
         onOk={handleOk}
         onCancel={handleCancel}
         footer={null}
