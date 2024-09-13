@@ -46,7 +46,7 @@ const Home = () => {
   };
   const isShared = expandedSection === null;
 
-  const showCard = () => {
+  const showCard = (section: number) => {
     return (
       <motion.div
         style={{
@@ -91,8 +91,25 @@ const Home = () => {
                 window.open(" https://d1gy6jtatxn3cc.cloudfront.net/");
               }}
             >
-              View Operational Solution
+              {section === 1
+                ? "View Water Solution"
+                : "  View Operational Solution"}
             </Button>
+            {section === 1 && (
+              <Button
+                type="primary"
+                className="ml-3"
+                onClick={() => {
+                  if (!isUserLoggedIn) {
+                    setAuthModal(true);
+                    return;
+                  }
+                  window.open("http://d24mwt6kussfzx.cloudfront.net/");
+                }}
+              >
+                {"View Manufacturing Solution"}
+              </Button>
+            )}
           </>
         </Card>
       </motion.div>
@@ -251,7 +268,7 @@ const Home = () => {
                 </div>
               )}
             </div>
-            {isExpanded(section) && showCard()}
+            {isExpanded(section) && showCard(section)}
           </div>
         </motion.div>
       ))}
