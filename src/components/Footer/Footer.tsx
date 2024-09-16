@@ -1,4 +1,4 @@
-import { Col, Layout, Menu, Row } from "antd";
+import { Col, Layout, Row } from "antd";
 import logo from "../../assets/zprime_logo.png";
 import classes from "./Footer.module.css";
 import { Link } from "react-router-dom";

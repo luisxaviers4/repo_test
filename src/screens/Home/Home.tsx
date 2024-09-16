@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 import defaultImage1 from "../../assets/bg1.png";
@@ -19,7 +19,7 @@ import { UserContext } from "../../context/UserContext";
 const Home = () => {
   const { setAuthModal, isUserLoggedIn } = useContext(UserContext);
   const [expandedSection, setExpandedSection] = useState(null);
-  const [hoveredSection, setHoveredSection] = useState(null);
+  const [hoveredSection, setHoveredSection] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -75,14 +75,23 @@ const Home = () => {
           }
         >
           <>
-            <h3>Get data from your plant use indicators with confidence</h3>
+            <h3>
+              {section === 1
+                ? "Operational Efficiency Solutions"
+                : section === 2
+                ? "Sustainability Solutions"
+                : "Get data from your plant use indicators with confidence"}
+            </h3>
             <div style={{ marginBottom: 30 }}>
-              Lorem ipsum dolor sit amet consectetur. Quam consectetur nec sed
-              tincidunt purus aenean volutpat dignissim. Amet ultrices sit neque
-              ac egestas semper ac at ipsum.
+              {section === 1
+                ? "Z Prime Operational Efficiency solutions provide customisable dashboards and analytics tools to monitor and analyse data integrated from multiple sources. By providing a holistic view of plant-wide operations, Z Prime dashboards provide organisations with operational insights spanning manufacturing and water and wastewater plant productivity, equipment maintenance and the performance of industrial IoT sensors to help organisations enhance asset reliability, mitigate performance deterioration, and reduce operational costs."
+                : section === 2
+                ? "Z Prime Sustainability solutions enable organisations to enhance environmental reporting and set long-term sustainability goals to ensure adherence to industry regulations and standards, supported by advanced data analytics. Z Prime’s unique and comprehensive environmental and circularity assessment functions foster transparency and accountability while promoting sustainable and efficient resource use across sectors."
+                : " Lorem ipsum dolor sit amet consectetur. Quam consectetur nec sedtincidunt purus aenean volutpat dignissim. Amet ultrices sit nequeac egestas semper ac at ipsum."}
             </div>
             <Button
               type="primary"
+              className="mr-3"
               onClick={() => {
                 if (!isUserLoggedIn) {
                   setAuthModal(true);
@@ -91,14 +100,12 @@ const Home = () => {
                 window.open(" https://d1gy6jtatxn3cc.cloudfront.net/");
               }}
             >
-              {section === 1
-                ? "View Water Solution"
-                : "  View Operational Solution"}
+              View Water Solution
             </Button>
             {section === 1 && (
               <Button
                 type="primary"
-                className="ml-3"
+                className="btnp"
                 onClick={() => {
                   if (!isUserLoggedIn) {
                     setAuthModal(true);
@@ -178,7 +185,7 @@ const Home = () => {
           }}
           onClick={() => handleClick(section)}
           onMouseEnter={() => setHoveredSection(section)}
-          onMouseLeave={() => setHoveredSection(null)}
+          onMouseLeave={() => setHoveredSection(0)}
         >
           <div
             className="overlay"

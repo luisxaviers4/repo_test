@@ -1,8 +1,8 @@
 // Header.tsx
-import React, { useContext } from "react";
-import { Layout, Menu, Button } from "antd";
+import { useContext } from "react";
+import { Layout, Button } from "antd";
 import { LogoutOutlined } from "@ant-design/icons";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 // import logo from "../../assets/Logo.svg";
 import logo from "../../assets/zprime_logo.png";
 import classes from "./header.module.css";
@@ -10,18 +10,22 @@ import { UserContext } from "../../context/UserContext";
 
 const { Header: AntHeader } = Layout;
 
-const userMenu = (
-  <Menu>
-    <Menu.Item key="0">
-      <Link to="/profile"></Link>
-    </Menu.Item>
-    <Menu.Divider />
-    <Menu.Item key="3">Logout</Menu.Item>
-  </Menu>
-);
+// const userMenu = (
+//   <Menu>
+//     <Menu.Item key="0">
+//       <Link to="/profile"></Link>
+//     </Menu.Item>
+//     <Menu.Divider />
+//     <Menu.Item key="3">Logout</Menu.Item>
+//   </Menu>
+// );
 
-const Header: React.FC = ({ loginHandler, logoutHandler }) => {
-  const navigate = useNavigate();
+interface headerProp {
+  loginHandler: () => void;
+  logoutHandler: () => Promise<void>;
+}
+
+const Header = ({ loginHandler, logoutHandler }: headerProp) => {
   const { isUserLoggedIn } = useContext(UserContext);
 
   return (
