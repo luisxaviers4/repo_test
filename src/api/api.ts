@@ -125,7 +125,7 @@ const apis: any = {
     handleLogin: async (username: string, password: string) => {
         try {
           const response = await axios.post(
-            "http://77.68.121.183/zprime/login-submit",
+            "https://api1.zprime.ai/zprime/login-submit",
             `username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`,
             { headers: { "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" } }
           );
@@ -141,7 +141,7 @@ const apis: any = {
       },
       handleLogout: async () => {
         try {
-          const response = await axios.post("http://77.68.121.183/zprime/logout");
+          const response = await axios.post("https://api1.zprime.ai/zprime/logout");
           return {
             data: response,
         }

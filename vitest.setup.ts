@@ -267,51 +267,51 @@ values: {
 
 
 export const restHandlers = [
-  http.get('http://77.68.121.183/zprime/data/json/dp_demo2/pbr_indicators_output', () => {
+  http.get('https://api1.zprime.ai/zprime/data/json/dp_demo2/pbr_indicators_output', () => {
     return HttpResponse.json(mockResponse1)
   }),
-  http.get('http://77.68.121.183/zprime/data/json/dp_demo2/pbr_model_output', () => {
+  http.get('https://api1.zprime.ai/zprime/data/json/dp_demo2/pbr_model_output', () => {
     return HttpResponse.json(mockResponse2)
   }),
-  http.get('http://77.68.121.183/zprime/data/json/dp_demo2/sensor_data_clean', () => {
+  http.get('https://api1.zprime.ai/zprime/data/json/dp_demo2/sensor_data_clean', () => {
     return HttpResponse.json(mockResponse3)
   }),
-  http.get('http://77.68.121.183/zprime/data/json/dp_demo2/alerts', () => {
+  http.get('https://api1.zprime.ai/zprime/data/json/dp_demo2/alerts', () => {
     return HttpResponse.json(mockResponse4)
   }),
-  http.get('http://77.68.121.183/zprime/data/json/dp_demo2/reactor01_forecast_30min', () => {
+  http.get('https://api1.zprime.ai/zprime/data/json/dp_demo2/reactor01_forecast_30min', () => {
     return HttpResponse.json(mockResponse5)
   }),
-  http.get('http://77.68.121.183/zprime/data/json/dp_demo2/reactor01_forecast_60min', () => {
+  http.get('https://api1.zprime.ai/zprime/data/json/dp_demo2/reactor01_forecast_60min', () => {
     return HttpResponse.json(mockResponse5)
   }),
-  http.get('http://77.68.121.183/zprime/data/json/dp_demo2/reactor01_forecast_120min', () => {
+  http.get('https://api1.zprime.ai/zprime/data/json/dp_demo2/reactor01_forecast_120min', () => {
     return HttpResponse.json(mockResponse5)
   }),
-  http.get('http://77.68.121.183/zprime/data/json/dp_demo1/lab_data', () => {
+  http.get('https://api1.zprime.ai/zprime/data/json/dp_demo1/lab_data', () => {
     return HttpResponse.json(mockResponse6)
   }),
-  http.get('http://77.68.121.183/zprime/data/json/dp_demo2/lab_data', () => {
+  http.get('https://api1.zprime.ai/zprime/data/json/dp_demo2/lab_data', () => {
     return HttpResponse.json(mockResponse7)
   }),
- http.get('http://77.68.121.183/zprime/data/json/dp_demo2/baseline_srt', () => {
+ http.get('https://api1.zprime.ai/zprime/data/json/dp_demo2/baseline_srt', () => {
   return HttpResponse.json(mockResponse8)
 }),
-http.get('http://77.68.121.183/zprime/data/json/dp_demo2/scenario1_srt', () => {
+http.get('https://api1.zprime.ai/zprime/data/json/dp_demo2/scenario1_srt', () => {
   return HttpResponse.json(mockResponse9)
 }),
-http.get('http://77.68.121.183/zprime/data/json/dp_demo2/scenario2_srt', () => {
+http.get('https://api1.zprime.ai/zprime/data/json/dp_demo2/scenario2_srt', () => {
   return HttpResponse.json(mockResponse10)
 }),
-http.get('http://77.68.121.183/zprime/parameters/process/dp_demo2', () => {
+http.get('https://api1.zprime.ai/zprime/parameters/process/dp_demo2', () => {
   return HttpResponse.json(mockResponse11)
 }),
-//http://77.68.121.183/zprime/data/json/dp_demo2/lab_data_extension
-http.get('http://77.68.121.183/zprime/data/json/dp_demo2/lab_data_extension', () => {
+//https://api1.zprime.ai/zprime/data/json/dp_demo2/lab_data_extension
+http.get('https://api1.zprime.ai/zprime/data/json/dp_demo2/lab_data_extension', () => {
   return HttpResponse.json(mockResponse12)
 }),
-// http://77.68.121.183/zprime/alerts/process/dp_demo2
-http.get('http://77.68.121.183/zprime/alerts/process/dp_demo2', () => {
+// https://api1.zprime.ai/zprime/alerts/process/dp_demo2
+http.get('https://api1.zprime.ai/zprime/alerts/process/dp_demo2', () => {
   return HttpResponse.json(mockResponse13)
 }),
   http.get('https://api.open-meteo.com/v1/forecast', () => {

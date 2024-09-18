@@ -80,14 +80,14 @@ const Home = () => {
                 ? "Operational Efficiency Solutions"
                 : section === 2
                 ? "Sustainability Solutions"
-                : "Get data from your plant use indicators with confidence"}
+                : "Compliance Solutions"}
             </h3>
             <div style={{ marginBottom: 30 }}>
               {section === 1
-                ? "Z Prime Operational Efficiency solutions provide customisable dashboards and analytics tools to monitor and analyse data integrated from multiple sources. By providing a holistic view of plant-wide operations, Z Prime dashboards provide organisations with operational insights spanning manufacturing and water and wastewater plant productivity, equipment maintenance and the performance of industrial IoT sensors to help organisations enhance asset reliability, mitigate performance deterioration, and reduce operational costs."
+                ? "Z Prime Operational Efficiency solutions provide customizable dashboards and analytics tools to holistically monitor and analyse data integrated from multiple sources, across multiple sectors. Z Prime dashboards provide  organizations with operational insights spanning productivity, product quality, and IoT sensor performance. These functions are powered by Z Prime’s AI and ML to clean data, forecast performance, and proactively maintain equipment, helping organizations enhance asset reliability, mitigate performance deterioration, and reduce operational costs."
                 : section === 2
-                ? "Z Prime Sustainability solutions enable organisations to enhance environmental reporting and set long-term sustainability goals to ensure adherence to industry regulations and standards, supported by advanced data analytics. Z Prime’s unique and comprehensive environmental and circularity assessment functions foster transparency and accountability while promoting sustainable and efficient resource use across sectors."
-                : " Lorem ipsum dolor sit amet consectetur. Quam consectetur nec sedtincidunt purus aenean volutpat dignissim. Amet ultrices sit nequeac egestas semper ac at ipsum."}
+                ? "Z Prime Sustainability solutions enable organizations to enhance environmental reporting, meet current performance targets, and set long-term sustainability goals, to ensure adherence to industry regulations and standards. Sustainability solutions utilize Z Prime’s comprehensive plant models to empower operators with the ability to strategically plan and optimize sustainable control strategies using digital twins. Supported by Z Prime’s advanced data analytics, our unique and comprehensive environmental and circularity assessment functions pioneer transparency, whilst ensuring sustainable and efficient resource use."
+                : "Z Prime Compliance solutions monitor the adherence of plant waste resource (solids, gas, liquid) and product composition against defined limits and thresholds. Z Prime dashboards are customizable, enabling thresholds to be set according to legislative demands, sectoral requirements, or organisational aspirations. Furthermore, Z Prime’s data-driven models enable dynamic thresholds to be actively calculated based on historic data and compared to current performance, facilitating continual improvement of plant compliance."}
             </div>
             <Button
               type="primary"
